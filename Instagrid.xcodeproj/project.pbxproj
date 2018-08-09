@@ -14,6 +14,8 @@
 		79D1CFA3211CE847002AEDD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D1CFA1211CE847002AEDD2 /* LaunchScreen.storyboard */; };
 		79D1CFAE211CE847002AEDD2 /* InstagridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CFAD211CE847002AEDD2 /* InstagridTests.swift */; };
 		79D1CFB9211CE847002AEDD2 /* InstagridUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CFB8211CE847002AEDD2 /* InstagridUITests.swift */; };
+		79D1CFC7211D0508002AEDD2 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 79D1CFC6211D0508002AEDD2 /* ThirstySoftRegular.otf */; };
+		79D1CFC9211D0514002AEDD2 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 79D1CFC8211D0514002AEDD2 /* Delm-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		79D1CFB4211CE847002AEDD2 /* InstagridUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagridUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D1CFB8211CE847002AEDD2 /* InstagridUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagridUITests.swift; sourceTree = "<group>"; };
 		79D1CFBA211CE847002AEDD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79D1CFC6211D0508002AEDD2 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		79D1CFC8211D0514002AEDD2 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				79D1CF9A211CE847002AEDD2 /* ViewController.swift */,
 				79D1CF9C211CE847002AEDD2 /* Main.storyboard */,
 				79D1CF9F211CE847002AEDD2 /* Assets.xcassets */,
+				79D1CFC6211D0508002AEDD2 /* ThirstySoftRegular.otf */,
+				79D1CFC8211D0514002AEDD2 /* Delm-Medium.otf */,
 				79D1CFA1211CE847002AEDD2 /* LaunchScreen.storyboard */,
 				79D1CFA4211CE847002AEDD2 /* Info.plist */,
 			);
@@ -233,7 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				79D1CFA3211CE847002AEDD2 /* LaunchScreen.storyboard in Resources */,
+				79D1CFC9211D0514002AEDD2 /* Delm-Medium.otf in Resources */,
 				79D1CFA0211CE847002AEDD2 /* Assets.xcassets in Resources */,
+				79D1CFC7211D0508002AEDD2 /* ThirstySoftRegular.otf in Resources */,
 				79D1CF9E211CE847002AEDD2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
