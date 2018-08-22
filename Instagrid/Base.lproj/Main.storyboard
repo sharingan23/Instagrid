@@ -58,6 +58,9 @@
                                                                     <constraint firstAttribute="width" secondItem="U6y-Fm-91e" secondAttribute="height" multiplier="1:1" id="FvI-pA-xTg"/>
                                                                 </constraints>
                                                                 <state key="normal" image="Combined Shape"/>
+                                                                <connections>
+                                                                    <action selector="square1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bXz-o3-AII"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eC6-Np-JIb" userLabel="Carré 2">
                                                                 <rect key="frame" x="154" y="0.0" width="139" height="139"/>
@@ -66,16 +69,22 @@
                                                                     <constraint firstAttribute="width" secondItem="eC6-Np-JIb" secondAttribute="height" multiplier="1:1" id="cwE-d0-NIA"/>
                                                                 </constraints>
                                                                 <state key="normal" image="Combined Shape"/>
+                                                                <connections>
+                                                                    <action selector="square2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z40-0V-euX"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7u7-Nv-vXc">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7u7-Nv-vXc">
                                                         <rect key="frame" x="0.0" y="154" width="293" height="149"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQo-Cl-QOA" userLabel="Rectangle">
                                                                 <rect key="frame" x="0.0" y="0.0" width="293" height="149"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" image="Combined Shape"/>
+                                                                <connections>
+                                                                    <action selector="rectangle2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CPa-FA-060"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -139,14 +148,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QaP-gX-pYT" userLabel="Layout 1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <state key="normal" image="Layout 1"/>
+                                        <connections>
+                                            <action selector="Layout1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fop-Fe-hIs"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkP-u4-DmR" userLabel="Layout 2">
                                         <rect key="frame" x="100" y="0.0" width="80" height="80"/>
                                         <state key="normal" image="Layout 2"/>
+                                        <connections>
+                                            <action selector="Layout2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jkg-S0-HSs"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7X-SC-JQS" userLabel="Layout 3">
                                         <rect key="frame" x="200" y="0.0" width="80" height="80"/>
                                         <state key="normal" image="Layout 3"/>
+                                        <connections>
+                                            <action selector="layout3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QMK-xG-mL7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -204,11 +222,11 @@
                                 <exclude reference="YHl-rD-OR2"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="qkP-EK-mEU"/>
                                 <exclude reference="3By-ly-CpB"/>
                                 <exclude reference="8pG-Kl-pD5"/>
                                 <exclude reference="E5G-pz-rxa"/>
                                 <exclude reference="lOa-L5-IPT"/>
-                                <exclude reference="qkP-EK-mEU"/>
                                 <exclude reference="Mr1-JJ-s8R"/>
                                 <exclude reference="PKJ-gQ-S1Z"/>
                                 <exclude reference="RMj-Y7-fSO"/>
@@ -224,10 +242,10 @@
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="subviews">
-                                <exclude reference="fAR-Gd-1Th"/>
                                 <include reference="YHl-rD-OR2"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="qkP-EK-mEU"/>
                                 <exclude reference="3By-ly-CpB"/>
                                 <include reference="8pG-Kl-pD5"/>
                                 <exclude reference="Up1-K3-MZh"/>
@@ -235,7 +253,6 @@
                                 <include reference="E5G-pz-rxa"/>
                                 <exclude reference="OH2-iA-W7R"/>
                                 <include reference="lOa-L5-IPT"/>
-                                <include reference="qkP-EK-mEU"/>
                                 <exclude reference="Mr1-JJ-s8R"/>
                                 <exclude reference="PKJ-gQ-S1Z"/>
                                 <exclude reference="RMj-Y7-fSO"/>
@@ -254,11 +271,22 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="fAR-Gd-1Th"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="Iyx-1i-uQO"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="rectangle" destination="jQo-Cl-QOA" id="z9r-Md-DPh"/>
+                        <outlet property="rectangleAndSquare" destination="Mek-Hn-STE" id="AOG-g5-THj"/>
+                        <outlet property="rectangleStack" destination="7u7-Nv-vXc" id="2Yq-mC-l9U"/>
+                        <outlet property="square1" destination="U6y-Fm-91e" id="Yzq-Ns-0BW"/>
+                        <outlet property="square2" destination="eC6-Np-JIb" id="Qjc-aS-3wQ"/>
+                        <outlet property="twoSquare" destination="Gf2-dE-XwH" id="8RN-FU-KAn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
