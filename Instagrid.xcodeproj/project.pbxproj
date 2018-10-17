@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7901351F2175EB860022C62F /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7901351E2175EB860022C62F /* Layout.swift */; };
 		79D1CF99211CE847002AEDD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CF98211CE847002AEDD2 /* AppDelegate.swift */; };
 		79D1CF9B211CE847002AEDD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1CF9A211CE847002AEDD2 /* ViewController.swift */; };
 		79D1CF9E211CE847002AEDD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D1CF9C211CE847002AEDD2 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7901351E2175EB860022C62F /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		79D1CF95211CE847002AEDD2 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D1CF98211CE847002AEDD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79D1CF9A211CE847002AEDD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,8 +103,9 @@
 		79D1CF97211CE847002AEDD2 /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
-				79D1CF98211CE847002AEDD2 /* AppDelegate.swift */,
 				79D1CF9A211CE847002AEDD2 /* ViewController.swift */,
+				79D1CF98211CE847002AEDD2 /* AppDelegate.swift */,
+				7901351E2175EB860022C62F /* Layout.swift */,
 				79D1CF9C211CE847002AEDD2 /* Main.storyboard */,
 				79D1CF9F211CE847002AEDD2 /* Assets.xcassets */,
 				79D1CFC6211D0508002AEDD2 /* ThirstySoftRegular.otf */,
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79D1CF9B211CE847002AEDD2 /* ViewController.swift in Sources */,
+				7901351F2175EB860022C62F /* Layout.swift in Sources */,
 				79D1CF99211CE847002AEDD2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
