@@ -138,21 +138,21 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QaP-gX-pYT" userLabel="Layout 1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <state key="normal" image="Layout 1"/>
+                                        <state key="normal" image="Selected" backgroundImage="Layout 1"/>
                                         <connections>
                                             <action selector="layout1" destination="BYZ-38-t0r" eventType="touchUpInside" id="oIp-IO-C4E"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkP-u4-DmR" userLabel="Layout 2">
                                         <rect key="frame" x="100" y="0.0" width="80" height="80"/>
-                                        <state key="normal" image="Layout 2"/>
+                                        <state key="normal" image="Selected" backgroundImage="Layout 2"/>
                                         <connections>
                                             <action selector="layout2" destination="BYZ-38-t0r" eventType="touchUpInside" id="3us-l7-mtd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7X-SC-JQS" userLabel="Layout 3">
                                         <rect key="frame" x="200" y="0.0" width="80" height="80"/>
-                                        <state key="normal" image="Layout 3"/>
+                                        <state key="normal" image="Selected" backgroundImage="Layout 3"/>
                                         <connections>
                                             <action selector="layout3" destination="BYZ-38-t0r" eventType="touchUpInside" id="eGN-eR-oWi"/>
                                         </connections>
@@ -272,6 +272,9 @@
                     </view>
                     <connections>
                         <outlet property="bottomView" destination="7u7-Nv-vXc" id="9sx-Zw-yDY"/>
+                        <outlet property="layout1x2" destination="QaP-gX-pYT" id="pDX-Gu-gVp"/>
+                        <outlet property="layout2x1" destination="zkP-u4-DmR" id="zXc-MP-TXV"/>
+                        <outlet property="layout2x2" destination="Q7X-SC-JQS" id="1vD-BZ-pwv"/>
                         <outlet property="topview" destination="Gf2-dE-XwH" id="W6Q-gs-hbe"/>
                     </connections>
                 </viewController>
@@ -285,6 +288,7 @@
         <image name="Layout 1" width="80" height="80"/>
         <image name="Layout 2" width="80" height="80"/>
         <image name="Layout 3" width="80" height="80"/>
+        <image name="Selected" width="80" height="80"/>
         <image name="leftSwfipe" width="10" height="15"/>
         <image name="upSwipe" width="15" height="10"/>
     </resources>

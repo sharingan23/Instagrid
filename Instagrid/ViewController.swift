@@ -15,18 +15,28 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bottomView: UIStackView!
     
-    //************* Button
+    //************* OUTLET Button choose layout
     
-    let layoutManager = Layout()
+    @IBOutlet weak var layout1x2: UIButton!
+    
+    @IBOutlet weak var layout2x1: UIButton!
+    
+    @IBOutlet weak var layout2x2: UIButton!
+    
+    let selected = UIImage(named: "Selected")
+    let layouts1 = UIImage(named: "Layout 1")
+    let layouts2 = UIImage(named: "Layout 2")
+    let layouts3 = UIImage(named: "Layout 3")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        layout2()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     
     @IBAction func layout1() {
+
         //Create Button 1
         let button = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         button.backgroundColor = UIColor.white
@@ -53,9 +63,17 @@ class ViewController: UIViewController {
         topview.addArrangedSubview(button)
         bottomView.addArrangedSubview(button2)
         bottomView.addArrangedSubview(button3)
+        
+        //selector
+        
+        layout1x2.setImage(selected, for: .normal)
+        layout1x2.setBackgroundImage(layouts1, for: .normal)
+        layout2x1.setImage(layouts2, for: .normal)
+        layout2x2.setImage(layouts3, for: .normal)
     }
     
     @IBAction func layout2() {
+        
         //Create Button 1
         let button = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         button.backgroundColor = UIColor.white
@@ -82,15 +100,25 @@ class ViewController: UIViewController {
         topview.addArrangedSubview(button)
         topview.addArrangedSubview(button2)
         bottomView.addArrangedSubview(button3)
+        
+        //selector
+        
+        layout1x2.setImage(layouts1, for: .normal)
+        layout2x1.setImage(selected, for: .normal)
+        layout2x1.setBackgroundImage(layouts2, for: .normal)
+        layout2x2.setImage(layouts3, for: .normal)
     }
    
     @IBAction func layout3() {
+       
         //Create Button 1
         let button = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         button.backgroundColor = UIColor.white
         let image = UIImage(named: "Combined Shape")
         button.setImage(image , for: .normal)
         //button.addTarget(self, action: "<#T##Selector#>", for: UIControlEvents.touchUpInside)
+        
+
         
         //Create Button 2
         let button2 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
@@ -119,6 +147,13 @@ class ViewController: UIViewController {
         topview.addArrangedSubview(button2)
         bottomView.addArrangedSubview(button3)
         bottomView.addArrangedSubview(button4)
+        
+        //Selector
+        layout1x2.setImage(layouts1, for: .normal)
+        layout2x1.setImage(layouts2, for: .normal)
+        layout2x2.setImage(selected, for: .normal)
+        layout2x2.setBackgroundImage(layouts3, for: .normal)
+        
     }
  
     func resetViews () {
@@ -132,14 +167,13 @@ class ViewController: UIViewController {
     
     func refreshLayoutView() {
         // mettre a jour ta vue
-        var imageToShowInSquare = layoutManager.images
+        //var imageToShowInSquare = layoutManager.images
         // Placer les images dans les stackview avec les bons UIButton dans les bon Stackview
         //myButton.currentImage! = imageToShowInSquare[0][0]
         //myButton.currentImage! = imageToShowInSquare[0][1]
        // myButton.currentImage! = imageToShowInSquare[1][0]
         //myButton.currentImage! = imageToShowInSquare[1][1]
         }
-    
   
     
     
