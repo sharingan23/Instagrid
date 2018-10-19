@@ -165,6 +165,7 @@
                                     <constraint firstItem="Q7X-SC-JQS" firstAttribute="width" secondItem="QaP-gX-pYT" secondAttribute="width" id="TN7-2E-9fZ"/>
                                 </constraints>
                                 <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
+                                <variation key="heightClass=regular-widthClass=compact" axis="horizontal"/>
                             </stackView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="upSwipe" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAR-Gd-1Th">
                                 <rect key="frame" x="180" y="125" width="15" height="10"/>
@@ -213,7 +214,6 @@
                                 <exclude reference="YHl-rD-OR2"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="qkP-EK-mEU"/>
                                 <exclude reference="3By-ly-CpB"/>
                                 <exclude reference="8pG-Kl-pD5"/>
                                 <exclude reference="E5G-pz-rxa"/>
@@ -229,6 +229,7 @@
                                 <exclude reference="uU0-dR-1Yk"/>
                                 <exclude reference="zn8-Vz-GNe"/>
                                 <exclude reference="arm-4z-A1n"/>
+                                <exclude reference="qkP-EK-mEU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -236,7 +237,6 @@
                                 <include reference="YHl-rD-OR2"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="qkP-EK-mEU"/>
                                 <exclude reference="3By-ly-CpB"/>
                                 <include reference="8pG-Kl-pD5"/>
                                 <exclude reference="Up1-K3-MZh"/>
@@ -259,6 +259,7 @@
                                 <exclude reference="49r-qM-TNp"/>
                                 <include reference="arm-4z-A1n"/>
                                 <exclude reference="xpV-as-BBa"/>
+                                <include reference="qkP-EK-mEU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -275,6 +276,7 @@
                         <outlet property="layout1x2" destination="QaP-gX-pYT" id="pDX-Gu-gVp"/>
                         <outlet property="layout2x1" destination="zkP-u4-DmR" id="zXc-MP-TXV"/>
                         <outlet property="layout2x2" destination="Q7X-SC-JQS" id="1vD-BZ-pwv"/>
+                        <outlet property="swipeLabel" destination="nd9-M1-HWD" id="Jln-aa-6Mu"/>
                         <outlet property="topview" destination="Gf2-dE-XwH" id="W6Q-gs-hbe"/>
                     </connections>
                 </viewController>

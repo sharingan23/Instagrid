@@ -28,8 +28,14 @@ class ViewController: UIViewController {
     let layouts2 = UIImage(named: "Layout 2")
     let layouts3 = UIImage(named: "Layout 3")
     
+    // OUTLET label swipe
+    
+    @IBOutlet weak var swipeLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         layout2()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -174,16 +180,17 @@ class ViewController: UIViewController {
        // myButton.currentImage! = imageToShowInSquare[1][0]
         //myButton.currentImage! = imageToShowInSquare[1][1]
         }
-  
     
-    
-    @IBAction func squareLeft() {
-    }
-    
-    @IBAction func squareRight() {
-    }
-    
-    @IBAction func rectangle1() {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            swipeLabel.text = "Swipe left to share"
+            
+        } else {
+            print("Portrait")
+            swipeLabel.text = "Swipe up to share"
+        }
     }
     
 }
