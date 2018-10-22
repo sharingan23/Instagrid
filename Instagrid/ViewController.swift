@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var layout2x2: UIButton!
     
+    //Stock Images
+    
     let selected = UIImage(named: "Selected")
     let layouts1 = UIImage(named: "Layout 1")
     let layouts2 = UIImage(named: "Layout 2")
@@ -37,40 +39,37 @@ class ViewController: UIViewController {
     let layout = Layout()
     
     //selector of buttons
-    //Layout1x2
-    @objc func buttonLayoutpressed(sender: UIButton){
-        print("pressed 1")
-    }
-    @objc func button2Layoutpressed(sender: UIButton){
-        print("pressed 2")
-    }
-    @objc func button3Layoutpressed(sender: UIButton){
-        print("pressed 3")
+    
+    @objc func buttonpressed(sender: UIButton){
+        //PhothoLibrary access
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        myPickerController.sourceType = .photoLibrary
+        present(myPickerController, animated: true)
     }
     
-    //Layout2x1
-    @objc func buttonLayout2x1pressed(sender: UIButton){
-        print("pressed 1 2x1")
-    }
-    @objc func button2Layout2x1pressed(sender: UIButton){
-        print("pressed 2 2x1")
-    }
-    @objc func button3Layout2x1pressed(sender: UIButton){
-        print("pressed 3 2x1")
-    }
     
-    //Layout2x2
-    @objc func buttonLayout2x2pressed(sender: UIButton){
-        print("pressed 1 2x2")
+    
+    @objc func button2pressed(sender: UIButton){
+        //PhothoLibrary access
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        myPickerController.sourceType = .photoLibrary
+        present(myPickerController, animated: true)
     }
-    @objc func button2Layout2x2pressed(sender: UIButton){
-        print("pressed 2 2x2")
+    @objc func button3pressed(sender: UIButton){
+        //PhothoLibrary access
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        myPickerController.sourceType = .photoLibrary
+        present(myPickerController, animated: true)
     }
-    @objc func button3Layout2x2pressed(sender: UIButton){
-        print("pressed 3 2x2")
-    }
-    @objc func button4Layout2x2pressed(sender: UIButton){
-        print("pressed 4 2x2")
+    @objc func button4pressed(sender: UIButton){
+        //PhothoLibrary access
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        myPickerController.sourceType = .photoLibrary
+        present(myPickerController, animated: true)
     }
  
     
@@ -91,21 +90,21 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor.white
         let image = UIImage(named: "Combined Shape")
         button.setImage(image , for: .normal)
-        button.addTarget(self, action: #selector(self.buttonLayoutpressed), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(self.buttonpressed), for: UIControlEvents.touchUpInside)
         
         //Create Button 2
         let button2 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         button2.backgroundColor = UIColor.white
         let image2 = UIImage(named: "Combined Shape")
         button2.setImage(image2 , for: .normal)
-        button2.addTarget(self, action: #selector(self.button2Layoutpressed), for: UIControlEvents.touchUpInside)
+        button2.addTarget(self, action: #selector(self.button2pressed), for: UIControlEvents.touchUpInside)
         
         //Create Button 3
         let button3 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         let image3 = UIImage(named: "Combined Shape")
         button3.backgroundColor = UIColor.white
         button3.setImage(image3 , for: .normal)
-        button3.addTarget(self, action: #selector(self.button3Layoutpressed), for: UIControlEvents.touchUpInside)
+        button3.addTarget(self, action: #selector(self.button3pressed), for: UIControlEvents.touchUpInside)
         
         //Remove all subview and add buttons
         resetViews()
@@ -128,21 +127,21 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor.white
         let image = UIImage(named: "Combined Shape")
         button.setImage(image , for: .normal)
-        button.addTarget(self, action: #selector(self.buttonLayout2x1pressed), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(self.buttonpressed), for: UIControlEvents.touchUpInside)
         
         //Create Button 2
         let button2 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         button2.backgroundColor = UIColor.white
         let image2 = UIImage(named: "Combined Shape")
         button2.setImage(image2 , for: .normal)
-        button2.addTarget(self, action: #selector(self.button2Layout2x1pressed), for: UIControlEvents.touchUpInside)
+        button2.addTarget(self, action: #selector(self.button2pressed), for: UIControlEvents.touchUpInside)
         
         //Create Button 3
         let button3 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         let image3 = UIImage(named: "Combined Shape")
         button3.backgroundColor = UIColor.white
         button3.setImage(image3 , for: .normal)
-        button3.addTarget(self, action: #selector(self.button3Layout2x1pressed), for: UIControlEvents.touchUpInside)
+        button3.addTarget(self, action: #selector(self.button3pressed), for: UIControlEvents.touchUpInside)
         
         //Remove all subview and add buttons
         resetViews()
@@ -165,7 +164,7 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor.white
         let image = UIImage(named: "Combined Shape")
         button.setImage(image , for: .normal)
-        button.addTarget(self, action: #selector(self.buttonLayout2x2pressed), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(self.buttonpressed), for: UIControlEvents.touchUpInside)
         
        
         
@@ -174,21 +173,21 @@ class ViewController: UIViewController {
         button2.backgroundColor = UIColor.white
         let image2 = UIImage(named: "Combined Shape")
         button2.setImage(image2 , for: .normal)
-        button2.addTarget(self, action: #selector(self.button2Layout2x2pressed), for: UIControlEvents.touchUpInside)
+        button2.addTarget(self, action: #selector(self.button2pressed), for: UIControlEvents.touchUpInside)
         
         //Create Button 3
         let button3 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         let image3 = UIImage(named: "Combined Shape")
         button3.backgroundColor = UIColor.white
         button3.setImage(image3 , for: .normal)
-        button3.addTarget(self, action: #selector(self.button3Layout2x2pressed), for: UIControlEvents.touchUpInside)
+        button3.addTarget(self, action: #selector(self.button3pressed), for: UIControlEvents.touchUpInside)
         
         //Create Button 4
         let button4 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         button4.backgroundColor = UIColor.white
         let image4 = UIImage(named: "Combined Shape")
         button4.setImage(image4 , for: .normal)
-        button4.addTarget(self, action: #selector(self.button4Layout2x2pressed), for: UIControlEvents.touchUpInside)
+        button4.addTarget(self, action: #selector(self.button4pressed), for: UIControlEvents.touchUpInside)
         
         //Remove all subview and add buttons
         resetViews()
@@ -239,4 +238,3 @@ class ViewController: UIViewController {
     }
     
 }
-
