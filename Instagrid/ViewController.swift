@@ -28,7 +28,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     
     //button
     func makeButton(ind: Int,img : UIImage) -> UIButton {
-        var button = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
+        let button = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
         
         button.setImage(img, for: .normal)
         button.backgroundColor = .white
@@ -120,7 +120,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
         //Remove all subview and add buttons
         layout.layout = .layout1x2
-        refreshLayoutView()
+        refreshLayoutView(indexBot: 1)
         
         
         //selected
@@ -136,7 +136,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
         //Remove all subview and add buttons
         layout.layout = .layout2x1
-        refreshLayoutView()
+        refreshLayoutView(indexBot: 2)
         //selected
         
         layout1x2.setImage(layouts1, for: .normal)
@@ -149,7 +149,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
         //Remove all subview and add buttons
         layout.layout = .layout2x2
-        refreshLayoutView()
+        refreshLayoutView(indexBot: 2)
         //Selected
         layout1x2.setImage(layouts1, for: .normal)
         layout2x1.setImage(layouts2, for: .normal)
@@ -169,13 +169,11 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
         }
     }
     
-    func refreshLayoutView() {
+    func refreshLayoutView(indexBot: Int) {
         // mettre a jour ta vue
-        var imageToShowInSquare = layout.images
         var imageGrid = layout.imageGrid
         var index = 0
-        var indexBottom = 2
-    
+        var indexBottom = indexBot
         // Placer les images dans les stackview avec les bons UIButton dans les bon Stackview
         resetViews()
         for img in imageGrid[0]{
