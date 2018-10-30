@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
    //************** OUTLET topview and bottomview
     
     @IBOutlet weak var topview: UIStackView!
@@ -23,8 +23,33 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var layout2x2: UIButton!
     
-    //Stock Images
+    //stockIndex
+    var saveIndex: Int = 0
     
+    //button
+    func makeButton(ind: Int,img : UIImage) -> UIButton {
+        var button = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
+        
+        button.setImage(img, for: .normal)
+        button.backgroundColor = .white
+        switch ind {
+            case 0:
+                button.addTarget(self, action: #selector(self.buttonpressed), for: .touchUpInside)
+            case 1:
+                button.addTarget(self, action: #selector(self.button2pressed), for: .touchUpInside)
+            case 2:
+                button.addTarget(self, action: #selector(self.button3pressed), for: .touchUpInside)
+            case 3:
+                button.addTarget(self, action: #selector(self.button4pressed), for: .touchUpInside)
+            
+        default:
+            break
+        }
+        return button
+    }
+    
+    //Stock Images
+    let image = UIImage(named: "Combined Shape")
     let selected = UIImage(named: "Selected")
     let layouts1 = UIImage(named: "Layout 1")
     let layouts2 = UIImage(named: "Layout 2")
@@ -38,38 +63,46 @@ class ViewController: UIViewController {
     
     let layout = Layout()
     
+    //Image picked
+    var imagePicked: UIImage?
+    
+    //Access to PhotoLibrary
+    func accessPhotoLibrary(index: Int) {
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self
+        myPickerController.sourceType = .photoLibrary
+        saveIndex = index
+        present(myPickerController, animated: true)
+    }
+    
+    //ImagePicker
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        imagePicked = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+        layout.images[saveIndex] = imagePicked!
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //selector of buttons
     
     @objc func buttonpressed(sender: UIButton){
         //PhothoLibrary access
-        let myPickerController = UIImagePickerController()
-        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        myPickerController.sourceType = .photoLibrary
-        present(myPickerController, animated: true)
+        accessPhotoLibrary(index: 0)
+        
     }
-    
-    
     
     @objc func button2pressed(sender: UIButton){
         //PhothoLibrary access
-        let myPickerController = UIImagePickerController()
-        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        myPickerController.sourceType = .photoLibrary
-        present(myPickerController, animated: true)
+        accessPhotoLibrary(index: 1)
+
     }
     @objc func button3pressed(sender: UIButton){
         //PhothoLibrary access
-        let myPickerController = UIImagePickerController()
-        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        myPickerController.sourceType = .photoLibrary
-        present(myPickerController, animated: true)
+        accessPhotoLibrary(index: 2)
     }
     @objc func button4pressed(sender: UIButton){
         //PhothoLibrary access
-        let myPickerController = UIImagePickerController()
-        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        myPickerController.sourceType = .photoLibrary
-        present(myPickerController, animated: true)
+        accessPhotoLibrary(index: 3)
     }
  
     
@@ -84,33 +117,11 @@ class ViewController: UIViewController {
     
     
     @IBAction func layout1() {
-
-        //Create Button 1
-        let button = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        button.backgroundColor = UIColor.white
-        let image = UIImage(named: "Combined Shape")
-        button.setImage(image , for: .normal)
-        button.addTarget(self, action: #selector(self.buttonpressed), for: UIControlEvents.touchUpInside)
-        
-        //Create Button 2
-        let button2 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        button2.backgroundColor = UIColor.white
-        let image2 = UIImage(named: "Combined Shape")
-        button2.setImage(image2 , for: .normal)
-        button2.addTarget(self, action: #selector(self.button2pressed), for: UIControlEvents.touchUpInside)
-        
-        //Create Button 3
-        let button3 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        let image3 = UIImage(named: "Combined Shape")
-        button3.backgroundColor = UIColor.white
-        button3.setImage(image3 , for: .normal)
-        button3.addTarget(self, action: #selector(self.button3pressed), for: UIControlEvents.touchUpInside)
         
         //Remove all subview and add buttons
-        resetViews()
-        topview.addArrangedSubview(button)
-        bottomView.addArrangedSubview(button2)
-        bottomView.addArrangedSubview(button3)
+        layout.layout = .layout1x2
+        refreshLayoutView()
+        
         
         //selected
         
@@ -118,37 +129,14 @@ class ViewController: UIViewController {
         layout1x2.setBackgroundImage(layouts1, for: .normal)
         layout2x1.setImage(layouts2, for: .normal)
         layout2x2.setImage(layouts3, for: .normal)
+        
     }
     
     @IBAction func layout2() {
         
-        //Create Button 1
-        let button = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        button.backgroundColor = UIColor.white
-        let image = UIImage(named: "Combined Shape")
-        button.setImage(image , for: .normal)
-        button.addTarget(self, action: #selector(self.buttonpressed), for: UIControlEvents.touchUpInside)
-        
-        //Create Button 2
-        let button2 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        button2.backgroundColor = UIColor.white
-        let image2 = UIImage(named: "Combined Shape")
-        button2.setImage(image2 , for: .normal)
-        button2.addTarget(self, action: #selector(self.button2pressed), for: UIControlEvents.touchUpInside)
-        
-        //Create Button 3
-        let button3 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        let image3 = UIImage(named: "Combined Shape")
-        button3.backgroundColor = UIColor.white
-        button3.setImage(image3 , for: .normal)
-        button3.addTarget(self, action: #selector(self.button3pressed), for: UIControlEvents.touchUpInside)
-        
         //Remove all subview and add buttons
-        resetViews()
-        topview.addArrangedSubview(button)
-        topview.addArrangedSubview(button2)
-        bottomView.addArrangedSubview(button3)
-        
+        layout.layout = .layout2x1
+        refreshLayoutView()
         //selected
         
         layout1x2.setImage(layouts1, for: .normal)
@@ -158,44 +146,10 @@ class ViewController: UIViewController {
     }
    
     @IBAction func layout3() {
-       
-        //Create Button 1
-        let button = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        button.backgroundColor = UIColor.white
-        let image = UIImage(named: "Combined Shape")
-        button.setImage(image , for: .normal)
-        button.addTarget(self, action: #selector(self.buttonpressed), for: UIControlEvents.touchUpInside)
-        
-       
-        
-        //Create Button 2
-        let button2 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        button2.backgroundColor = UIColor.white
-        let image2 = UIImage(named: "Combined Shape")
-        button2.setImage(image2 , for: .normal)
-        button2.addTarget(self, action: #selector(self.button2pressed), for: UIControlEvents.touchUpInside)
-        
-        //Create Button 3
-        let button3 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        let image3 = UIImage(named: "Combined Shape")
-        button3.backgroundColor = UIColor.white
-        button3.setImage(image3 , for: .normal)
-        button3.addTarget(self, action: #selector(self.button3pressed), for: UIControlEvents.touchUpInside)
-        
-        //Create Button 4
-        let button4 = UIButton(frame: CGRect(x: 10, y: 10, width: 50, height: 50))
-        button4.backgroundColor = UIColor.white
-        let image4 = UIImage(named: "Combined Shape")
-        button4.setImage(image4 , for: .normal)
-        button4.addTarget(self, action: #selector(self.button4pressed), for: UIControlEvents.touchUpInside)
         
         //Remove all subview and add buttons
-        resetViews()
-        topview.addArrangedSubview(button)
-        topview.addArrangedSubview(button2)
-        bottomView.addArrangedSubview(button3)
-        bottomView.addArrangedSubview(button4)
-        
+        layout.layout = .layout2x2
+        refreshLayoutView()
         //Selected
         layout1x2.setImage(layouts1, for: .normal)
         layout2x1.setImage(layouts2, for: .normal)
@@ -218,21 +172,28 @@ class ViewController: UIViewController {
     func refreshLayoutView() {
         // mettre a jour ta vue
         var imageToShowInSquare = layout.images
+        var imageGrid = layout.imageGrid
+        var index = 0
+        var indexBottom = 2
+    
         // Placer les images dans les stackview avec les bons UIButton dans les bon Stackview
-        //myButtoncurrentImage! = imageToShowInSquare[0][0]
-        //myButton.currentImage! = imageToShowInSquare[0][1]
-       // myButton.currentImage! = imageToShowInSquare[1][0]
-        //myButton.currentImage! = imageToShowInSquare[1][1]
+        resetViews()
+        for img in imageGrid[0]{
+            topview.addArrangedSubview(makeButton(ind: index,img : img))
+            index = index + 1
         }
+        for img in imageGrid[1]{
+            bottomView.addArrangedSubview(makeButton(ind: indexBottom,img : img))
+            indexBottom = indexBottom + 1
+        }
+    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if UIDevice.current.orientation.isLandscape {
-            print("Landscape")
             swipeLabel.text = "Swipe left to share"
             
         } else {
-            print("Portrait")
             swipeLabel.text = "Swipe up to share"
         }
     }

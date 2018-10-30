@@ -10,10 +10,34 @@ import Foundation
 import UIKit
 
 class   Layout {
-    var images: [[UIImage]]
+    var images: [UIImage]
+    var imageGrid: [[UIImage]]{
+        switch layout {
+        case .layout1x2:
+            return [
+            [images[0]],
+            [images[1],images[2]]
+            
+            ]
+        case .layout2x1:
+            return [
+                [images[0],images[1]],
+                [images[2]]
+                
+            ]
+        case .layout2x2:
+            return [
+                [images[0],images[1]],
+                [images[2],images[3]]
+                
+            ]
+            
+        }
+        
+    }
     
     init () {
-        self.images = []
+        self.images = [UIImage(named: "Combined Shape")!,UIImage(named: "Combined Shape")!,UIImage(named: "Combined Shape")!,UIImage(named: "Combined Shape")!]
     }
     
     enum Layout {
@@ -22,59 +46,5 @@ class   Layout {
         case layout2x1
     }
     
-    var layout: Layout = .layout1x2 {
-        didSet {
-            switch oldValue {
-            // cas 1 = .layout1x2
-            case .layout1x2:
-                switch layout {
-                case .layout1x2:
-                    break
-                case .layout2x1:
-                    //remove 1 from images[1]
-                    if images[1].count > 1 {
-                        images[0].append(images[1].removeLast())
-                    }
-                case .layout2x2:
-                    //add 1 in images[0]
-                    images[0].append(images[0][0])
-                    break
-                }
-                
-            case .layout2x1:
-                switch layout {
-                case .layout1x2:
-                    //remove 1 from images[0]
-                    if images[0].count > 1 {
-                        images[0].removeLast()
-                    }
-                    //add 1 in images[1]
-                    images[1].append(images[0][1])
-                    break
-                case .layout2x1:
-                    break
-                case .layout2x2:
-                    //add 1 in images[1]
-                    images[1].append(images[0][0])
-                    break
-                }
-                
-            case .layout2x2:
-                switch layout {
-                case .layout1x2:
-                    if images[0].count > 1 {
-                        images[0].removeLast()
-                    }
-                case .layout2x1:
-                    if images[1].count > 1 {
-                        images[1].removeLast()
-                    }
-                case .layout2x2: break
-                    
-                }
-                
-            }
-            
-        }
-    }
+    var layout: Layout = .layout1x2
 }
