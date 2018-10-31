@@ -23,6 +23,11 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     
     @IBOutlet weak var layout2x2: UIButton!
     
+    @IBOutlet weak var sharePhotos: UIView!
+    
+    //Swipe
+   
+    
     //stockIndex
     var saveIndex: Int = 0
     
@@ -80,6 +85,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     {
         imagePicked = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         layout.images[saveIndex] = imagePicked!
+        refreshLayoutView()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -110,7 +116,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+    addGesture(dir: .up)
         layout2()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -120,7 +126,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
         //Remove all subview and add buttons
         layout.layout = .layout1x2
-        refreshLayoutView(indexBot: 1)
+        refreshLayoutView()
         
         
         //selected
@@ -136,7 +142,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
         //Remove all subview and add buttons
         layout.layout = .layout2x1
-        refreshLayoutView(indexBot: 2)
+        refreshLayoutView()
         //selected
         
         layout1x2.setImage(layouts1, for: .normal)
@@ -149,13 +155,12 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
         //Remove all subview and add buttons
         layout.layout = .layout2x2
-        refreshLayoutView(indexBot: 2)
+        refreshLayoutView()
         //Selected
         layout1x2.setImage(layouts1, for: .normal)
         layout2x1.setImage(layouts2, for: .normal)
         layout2x2.setImage(selected, for: .normal)
         layout2x2.setBackgroundImage(layouts3, for: .normal)
-        
     }
     
   
@@ -169,11 +174,10 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
         }
     }
     
-    func refreshLayoutView(indexBot: Int) {
+    func refreshLayoutView() {
         // mettre a jour ta vue
         var imageGrid = layout.imageGrid
         var index = 0
-        var indexBottom = indexBot
         // Placer les images dans les stackview avec les bons UIButton dans les bon Stackview
         resetViews()
         for img in imageGrid[0]{
@@ -181,18 +185,41 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
             index = index + 1
         }
         for img in imageGrid[1]{
-            bottomView.addArrangedSubview(makeButton(ind: indexBottom,img : img))
-            indexBottom = indexBottom + 1
+            bottomView.addArrangedSubview(makeButton(ind: index,img : img))
+            index = index + 1
         }
     }
     
+    func addGesture(dir: UISwipeGestureRecognizerDirection){
+        
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.sharePhoto))
+        swipe.direction = dir
+        self.view.addGestureRecognizer(swipe)
+    }
+    
+    func removeRecognizer(){
+        for recognizer in self.view.gestureRecognizers ?? [] {
+            self.view.removeGestureRecognizer(recognizer)
+        }
+    }
+    
+    @objc func sharePhoto(sender: UIGestureRecognizer) {
+        let activityController = UIActivityViewController(activityItems: [sharePhotos], applicationActivities: nil)
+        present(activityController,animated: true, completion: nil)
+    }
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        
         if UIDevice.current.orientation.isLandscape {
+            removeRecognizer()
             swipeLabel.text = "Swipe left to share"
-            
+            addGesture(dir: .left)
         } else {
+            removeRecognizer()
             swipeLabel.text = "Swipe up to share"
+            addGesture(dir: .up)
+            
         }
     }
     

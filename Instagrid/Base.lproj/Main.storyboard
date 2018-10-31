@@ -214,6 +214,7 @@
                                 <exclude reference="YHl-rD-OR2"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="qkP-EK-mEU"/>
                                 <exclude reference="3By-ly-CpB"/>
                                 <exclude reference="8pG-Kl-pD5"/>
                                 <exclude reference="E5G-pz-rxa"/>
@@ -229,7 +230,6 @@
                                 <exclude reference="uU0-dR-1Yk"/>
                                 <exclude reference="zn8-Vz-GNe"/>
                                 <exclude reference="arm-4z-A1n"/>
-                                <exclude reference="qkP-EK-mEU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -237,6 +237,7 @@
                                 <include reference="YHl-rD-OR2"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="qkP-EK-mEU"/>
                                 <exclude reference="3By-ly-CpB"/>
                                 <include reference="8pG-Kl-pD5"/>
                                 <exclude reference="Up1-K3-MZh"/>
@@ -259,7 +260,6 @@
                                 <exclude reference="49r-qM-TNp"/>
                                 <include reference="arm-4z-A1n"/>
                                 <exclude reference="xpV-as-BBa"/>
-                                <include reference="qkP-EK-mEU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -276,6 +276,7 @@
                         <outlet property="layout1x2" destination="QaP-gX-pYT" id="pDX-Gu-gVp"/>
                         <outlet property="layout2x1" destination="zkP-u4-DmR" id="zXc-MP-TXV"/>
                         <outlet property="layout2x2" destination="Q7X-SC-JQS" id="1vD-BZ-pwv"/>
+                        <outlet property="sharePhotos" destination="xeG-oS-Y2p" id="4DD-m2-Pq9"/>
                         <outlet property="swipeLabel" destination="nd9-M1-HWD" id="Jln-aa-6Mu"/>
                         <outlet property="topview" destination="Gf2-dE-XwH" id="W6Q-gs-hbe"/>
                     </connections>
