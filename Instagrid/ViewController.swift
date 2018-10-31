@@ -22,11 +22,8 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     @IBOutlet weak var layout2x1: UIButton!
     
     @IBOutlet weak var layout2x2: UIButton!
-    
+    //MainLayout to share collage
     @IBOutlet weak var sharePhotos: UIView!
-    
-    //Swipe
-   
     
     //stockIndex
     var saveIndex: Int = 0
@@ -66,7 +63,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     
     // instance of Layout
     
-    let layout = Layout()
+    var layout = Layout()
     
     //Image picked
     var imagePicked: UIImage?
@@ -85,6 +82,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     {
         imagePicked = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         layout.images[saveIndex] = imagePicked!
+        //to instanly view the choosen image in the view
         refreshLayoutView()
         self.dismiss(animated: true, completion: nil)
     }
@@ -116,9 +114,24 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    addGesture(dir: .up)
+        addGesture(dir: .up)
         layout2()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    //Shake gesture recognizer
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            //button renew
+            layout = .init()
+            //refreshview
+            refreshLayoutView()
+            //selected layout1x2
+            layout1x2.setImage(selected, for: .normal)
+            layout1x2.setBackgroundImage(layouts1, for: .normal)
+            layout2x1.setImage(layouts2, for: .normal)
+            layout2x2.setImage(layouts3, for: .normal)
+        }
     }
     
     
@@ -164,7 +177,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     }
     
   
- 
+ //Delete all view in topview and bottomview
     func resetViews () {
         for view in topview.arrangedSubviews {
             view.removeFromSuperview()
@@ -175,10 +188,10 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     }
     
     func refreshLayoutView() {
-        // mettre a jour ta vue
+        //initialisation
         var imageGrid = layout.imageGrid
         var index = 0
-        // Placer les images dans les stackview avec les bons UIButton dans les bon Stackview
+        //resetview and add selected images and buttons
         resetViews()
         for img in imageGrid[0]{
             topview.addArrangedSubview(makeButton(ind: index,img : img))
@@ -189,28 +202,28 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
             index = index + 1
         }
     }
-    
+    //add swipe gesture
     func addGesture(dir: UISwipeGestureRecognizerDirection){
         
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.sharePhoto))
         swipe.direction = dir
         self.view.addGestureRecognizer(swipe)
     }
-    
+    //remove all gesture from view
     func removeRecognizer(){
         for recognizer in self.view.gestureRecognizers ?? [] {
             self.view.removeGestureRecognizer(recognizer)
         }
     }
-    
+    //share photos
     @objc func sharePhoto(sender: UIGestureRecognizer) {
         let activityController = UIActivityViewController(activityItems: [sharePhotos], applicationActivities: nil)
         present(activityController,animated: true, completion: nil)
     }
-
+    //mods when the phone orientation is different
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        
+        //check if Device orientation is Landscape
         if UIDevice.current.orientation.isLandscape {
             removeRecognizer()
             swipeLabel.text = "Swipe left to share"
