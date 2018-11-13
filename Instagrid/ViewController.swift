@@ -125,12 +125,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
             //button renew
             layout = .init()
             //refreshview
-            refreshLayoutView()
-            //selected layout1x2
-            layout1x2.setImage(selected, for: .normal)
-            layout1x2.setBackgroundImage(layouts1, for: .normal)
-            layout2x1.setImage(layouts2, for: .normal)
-            layout2x2.setImage(layouts3, for: .normal)
+            layout2()
         }
     }
     
@@ -217,23 +212,30 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     }
     //share photos
     @objc func sharePhoto(sender: UIGestureRecognizer) {
-        let activityController = UIActivityViewController(activityItems: [sharePhotos], applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: [imageWithView(view: sharePhotos)!], applicationActivities: nil)
         present(activityController,animated: true, completion: nil)
     }
     //mods when the phone orientation is different
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        //remove gesture
+        removeRecognizer()
         //check if Device orientation is Landscape
         if UIDevice.current.orientation.isLandscape {
-            removeRecognizer()
             swipeLabel.text = "Swipe left to share"
             addGesture(dir: .left)
         } else {
-            removeRecognizer()
             swipeLabel.text = "Swipe up to share"
             addGesture(dir: .up)
             
         }
     }
     
+    func imageWithView(view: UIView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    }
 }
