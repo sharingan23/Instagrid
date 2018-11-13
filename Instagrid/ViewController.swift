@@ -122,10 +122,19 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
     //Shake gesture recognizer
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
+            //current layout
+            let currentLayout = layout.layout
             //button renew
             layout = .init()
-            //refreshview
-            layout2()
+            //refreshview in function of the current layout
+            switch currentLayout {
+            case .layout1x2:
+                layout1()
+            case .layout2x1:
+                layout2()
+            case .layout2x2:
+                layout3()
+            }
         }
     }
     
